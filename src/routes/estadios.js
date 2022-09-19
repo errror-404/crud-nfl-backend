@@ -45,8 +45,8 @@ router.put("/put-estadios", (req, res) => {
   );
 });
 
-router.delete("/delete-estadios", (req, res) => {
-  const { id } = req.body;
+router.delete("/delete-estadios:id", (req, res) => {
+  const { id } = req.params;
   const query = `DELETE FROM estadios WHERE id = ?`;
   oMyBDConnection.query(query, [id], (err, rows, fields) => {
     if (!err) {

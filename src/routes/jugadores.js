@@ -67,8 +67,9 @@ router.put("/put-jugadores", (req, res) => {
   );
 });
 
-router.delete("/delete-jugadores", (req, res) => {
-  const { id } = req.body;
+router.delete("/delete-jugadores:id", (req, res) => {
+  const { id } = req.params;
+  console.log(id);
   const query = `DELETE FROM jugadores WHERE id = ?`;
   oMyBDConnection.query(query, [id], (err, rows, fields) => {
     if (!err) {
